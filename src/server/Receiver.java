@@ -10,9 +10,9 @@ public class Receiver {
 
         SensorReceiver sensorReceiver = new SensorReceiver();
         ClientReceiver clientReceiver = new ClientReceiver();
+        new Thread(sensorReceiver).start();
+        new Thread(clientReceiver).start();
 
-        sensorReceiver.run();
-        clientReceiver.run();
 
     }
 }
