@@ -4,6 +4,8 @@ package server;
  * Created by Dickow on 04/02/2015.
  */
 
+import clientServer.ClientReceiver;
+
 public class Receiver {
 
     public static void main(String[] args) {

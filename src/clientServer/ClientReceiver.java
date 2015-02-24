@@ -1,4 +1,4 @@
-package server;
+package clientServer;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -25,7 +25,8 @@ public class ClientReceiver implements Runnable, Compute {
         try {
             String name = "ClientReceiver";
             Compute receiver = new ClientReceiver();
-            Compute stub = (Compute) UnicastRemoteObject.exportObject(receiver, 0);
+            Compute stub = (Compute) UnicastRemoteObject.exportObject(receiver, 9998);
+            System.out.println("stub setup");
             Registry registry = LocateRegistry.getRegistry();
             registry.rebind(name, stub);
             System.out.println("Compute engine bound");

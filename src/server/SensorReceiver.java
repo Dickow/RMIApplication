@@ -47,11 +47,12 @@ public class SensorReceiver implements Runnable {
         // open then server socket for the input stream
         try {
             serverSocket = new ServerSocket(9999);
+            System.out.println("server is setup op port 9999");
         } catch (IOException e) {
             System.out.println("couldn't open a server socket on port 9999");
         }
         while (!done) {
-
+            System.out.println("waiting for connection");
             // setup the input stream
             try {
                 serviceSocket = serverSocket.accept();

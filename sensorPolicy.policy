@@ -1,0 +1,3 @@
+grant codeBase "file:/C:/Users/Dickow/Documents/IntelliJWorkspace/RMIApplication/src/server"{
+	permission java.net.SocketPermission "localhost:9999","accept,resolve";
+}
