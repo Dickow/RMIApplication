@@ -28,7 +28,7 @@ public class ClientReceiver implements Runnable, Compute {
             Compute receiver = new ClientReceiver();
             Compute stub = (Compute) UnicastRemoteObject.exportObject(receiver, 0);
             System.out.println("stub setup");
-            Registry registry = LocateRegistry.getRegistry();
+            Registry registry = LocateRegistry.createRegistry(1099);
             System.out.println("registry found");
             registry.rebind(name, stub);
             System.out.println("registry rebound");
