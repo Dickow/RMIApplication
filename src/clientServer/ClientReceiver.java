@@ -12,23 +12,26 @@ import java.rmi.server.UnicastRemoteObject;
 public class ClientReceiver implements Runnable, Compute {
 
     @Override
-    public <T> T executeTask(Task<T> tTask) throws RemoteException {
-        return tTask.execute();
+    public int executeTask() throws RemoteException {
+        return 20;
     }
+
 
     @Override
     public void run() {
 
-        if (System.getSecurityManager() == null) {
-            System.setSecurityManager(new SecurityManager());
-        }
+//        if (System.getSecurityManager() == null) {
+//            System.setSecurityManager(new SecurityManager());
+//        }
         try {
             String name = "ClientReceiver";
             Compute receiver = new ClientReceiver();
-            Compute stub = (Compute) UnicastRemoteObject.exportObject(receiver, 9998);
+            Compute stub = (Compute) UnicastRemoteObject.exportObject(receiver, 0);
             System.out.println("stub setup");
             Registry registry = LocateRegistry.getRegistry();
+            System.out.println("registry found");
             registry.rebind(name, stub);
+            System.out.println("registry rebound");
             System.out.println("Compute engine bound");
 
         } catch (Exception e) {
@@ -37,4 +40,6 @@ public class ClientReceiver implements Runnable, Compute {
         }
 
     }
+
+
 }
