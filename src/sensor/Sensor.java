@@ -75,7 +75,7 @@ public class Sensor {
         FileReader fileReader = new FileReader();
         ArrayList<Integer> arrayList;
         int[] intArray;
-        arrayList = fileReader.readData();
+        arrayList = fileReader.readData("temperatures.txt");
 
         intArray = new int[arrayList.size()];
 
